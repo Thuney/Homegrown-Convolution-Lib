@@ -19,13 +19,13 @@ impulse = get_samples_from_wav("..//wavs//" + impulse_file_name)
 # Test our convolution implementations
 #
 
-#before = time.perf_counter()
+before = time.perf_counter()
 
 #convolved = signal.fftconvolve(x, impulse)
-#convolved = signal.convolve(x, impulse, method="direct")
+convolved = signal.convolve(x, impulse, method="direct")
 
-#after = time.perf_counter()
-#print("Reference Convolution Time = " + str(after - before))
+after = time.perf_counter()
+print("Reference Convolution Time = " + str(after - before))
 
 #plot_convolution(impulse, x, convolved)
 
@@ -35,10 +35,21 @@ before = time.perf_counter()
 #convolved = convolve_multi(x, impulse)
 
 #convolved = c_convolve_brute(x, impulse)
-convolved = c_convolve_multi(x, impulse)
+# convolved = c_convolve_multi(x, impulse)
 
-after = time.perf_counter()
-print("C++ Multi Thread Convolution Time = " + str(after - before))
+# after = time.perf_counter()
+# print("C++ Multi Thread Convolution Time = " + str(after - before))
+
+# #signal_to_wav(convolved, "..//wavs//output//" + output_file_name)
+
+# plot_convolution(impulse, x, convolved)
+
+# before = time.perf_counter()
+
+# convolved = c_convolve_multi(impulse, x)
+
+# after = time.perf_counter()
+# print("C++ Multi Thread Convolution Time = " + str(after - before))
 
 #signal_to_wav(convolved, "..//wavs//output//" + output_file_name)
 
